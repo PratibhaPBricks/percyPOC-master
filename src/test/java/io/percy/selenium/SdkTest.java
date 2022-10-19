@@ -4,28 +4,23 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SdkTest {
  // private static final String TEST_URL = "https://www.boomin.dev";
-private static final String TEST_URL = "https://bee:launch2021!@cjeasey.co.uk/smartval/index.php";
-// private static final String TEST_URL = "https://bee:launch2021!@training-www.boomin.dev/";
+//private static final String TEST_URL = "https://bee:launch2021!@cjeasey.co.uk/smartval/index.php";
+ private static final String TEST_URL = "https://bee:launch2021!@training-www.boomin.dev/";
   private static WebDriver driver;
   private static Percy percy;
 
   @BeforeAll
   public static void testSetup() throws IOException, InterruptedException {
     // Disable browser logs from being logged to stdout
-    System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
+   // System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
   //  System.setProperty("webdriver.gecko.driver", "C://Users//PratibhaSistla//geckodriver.exe");
   //  driver = new FirefoxDriver();
   System.setProperty("webdriver.chrome.driver", "C://Users//PratibhaSistla//Selenium//chromedriver.exe");
