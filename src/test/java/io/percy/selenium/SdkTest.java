@@ -11,11 +11,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SdkTest {
  // private static final String TEST_URL = "https://www.boomin.dev";
- private static final String TEST_URL = "file:///C:/Users/PratibhaSistla/percy-selenium-java-master/src/test/java/io/percy/selenium/BasicCalculator.html";
+private static final String TEST_URL = "https://bee:launch2021!@cjeasey.co.uk/smartval/index.php";
+// private static final String TEST_URL = "https://bee:launch2021!@training-www.boomin.dev/";
   private static WebDriver driver;
   private static Percy percy;
 
@@ -23,8 +26,11 @@ public class SdkTest {
   public static void testSetup() throws IOException, InterruptedException {
     // Disable browser logs from being logged to stdout
     System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
-    System.setProperty("webdriver.gecko.driver", "C://Users//PratibhaSistla//geckodriver.exe");
-    driver = new FirefoxDriver();
+  //  System.setProperty("webdriver.gecko.driver", "C://Users//PratibhaSistla//geckodriver.exe");
+  //  driver = new FirefoxDriver();
+  System.setProperty("webdriver.chrome.driver", "C://Users//PratibhaSistla//Selenium//chromedriver.exe");
+  ChromeOptions options = new ChromeOptions();
+   driver = new ChromeDriver(options);
     percy = new Percy(driver);
    
 
@@ -42,7 +48,7 @@ public class SdkTest {
   public void takesLocalAppSnapshotWithProvidedName() throws InterruptedException{
     driver.get(TEST_URL);
 
-    percy.snapshot("Snapshot with provided name");
+    percy.snapshot("Snapshot of Boomin Home Page - Training Environment");
   }
 
   @Test
@@ -57,43 +63,42 @@ public class SdkTest {
     percy.snapshot("Snapshot with provided name and min height", null, 2000);
   }
 
-  @Test
-  public void takesMultipleSnapshotsInOneTestCase() {
-    driver.get(TEST_URL);
+  // @Test
+  // public void takesMultipleSnapshotsInOneTestCase() {
+  //   driver.get(TEST_URL);
 
-       WebElement newBuild = driver.findElement(By.id("selectBuild"));
-       newBuild.sendKeys("Prototype");
-       newBuild.sendKeys(Keys.RETURN);
-       percy.snapshot("Multiple snapshots in one test case -- #1", Arrays.asList(768, 992, 1200));
+  //      WebElement menuButton = driver.findElement(By.className("MuiButtonBase-root"));
+        
+  //      percy.snapshot("Multiple snapshots in one test case -- #1", Arrays.asList(768, 992, 1200));
 
-       WebElement operator = driver.findElement(By.id("selectOperationDropdown"));
-       operator.sendKeys("Add");
+    //    WebElement operator = driver.findElement(By.id("selectOperationDropdown"));
+    //    operator.sendKeys("Add");
 
        
-    percy.snapshot("Multiple snapshots in one test case -- #2", Arrays.asList(768, 992, 1200));
-  }
+    // percy.snapshot("Multiple snapshots in one test case -- #2", Arrays.asList(768, 992, 1200));
+  //}
 
-  // @Test
-  // public void snapshotALiveHTTPSite() {
-  //   driver.get("file:///C:/Users/PratibhaSistla/percy-selenium-java-master/src/test/java/io/percy/selenium/BasicCalculator.html");
-  //   percy.snapshot("Site served with HTTP");
-  // }
+//   @Test
+//   public void snapshotALiveHTTPSite() {
+//     driver.get("http://bee:launch2021!@training-www.boomin.dev/");
+//     percy.snapshot("Site served with HTTP");
+//   }
 
-  // @Test
-  // public void snapshotsWithJavaScriptEnabled() {
-  //   driver.get("file:///C:/Users/PratibhaSistla/percy-selenium-java-master/src/test/java/io/percy/selenium/BasicCalculator.html");
-  //   percy.snapshot("Site with JS enabled", null, null, true);
-  // }
+//   @Test
+//   public void snapshotsWithJavaScriptEnabled() {
+//     driver.get("https://bee:launch2021!@training-www.boomin.dev/");
+//     percy.snapshot("Site with JS enabled", null, null, true);
+//   }
 
-  // @Test
-  // public void snapshotsWithPercyCSS() {
-  //   driver.get("file:///C:/Users/PratibhaSistla/percy-selenium-java-master/src/test/java/io/percy/selenium/BasicCalculator.html");
-  //   percy.snapshot("Site with Percy CSS", null, null, false, "body { background-color: purple; }");
-  // }
+//   @Test
+//   public void snapshotsWithPercyCSS() {
+//     driver.get("https://bee:launch2021!@training-www.boomin.dev/");
+//     percy.snapshot("Site with Percy CSS", null, null, false, "body { background-color: purple; }");
+//   }
 
-  // @Test
-  // public void snapshotsWithScope() {
-  //   driver.get("file:///C:/Users/PratibhaSistla/percy-selenium-java-master/src/test/java/io/percy/selenium/BasicCalculator.html");
-  //   percy.snapshot("Site with scope", null, null, false, "", "div");
-  // }
-}
+//   @Test
+//   public void snapshotsWithScope() {
+//     driver.get("https://bee:launch2021!@training-www.boomin.dev/");
+//     percy.snapshot("Site with scope", null, null, false, "", "div");
+//   }
+ }
