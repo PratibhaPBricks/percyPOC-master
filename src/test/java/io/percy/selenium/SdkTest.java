@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class SdkTest {
  // private static final String TEST_URL = "https://www.boomin.dev";
@@ -20,12 +22,13 @@ public class SdkTest {
   @BeforeAll
   public static void testSetup() throws IOException, InterruptedException {
     // Disable browser logs from being logged to stdout
-   // System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
-  //  System.setProperty("webdriver.gecko.driver", "C://Users//PratibhaSistla//geckodriver.exe");
-  //  driver = new FirefoxDriver();
-  System.setProperty("webdriver.chrome.driver", "C://Users//PratibhaSistla//Selenium//chromedriver.exe");
-  ChromeOptions options = new ChromeOptions();
-   driver = new ChromeDriver(options);
+   System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
+   System.setProperty("webdriver.gecko.driver", "C://Users//PratibhaSistla//geckodriver.exe");
+   FirefoxOptions options = new FirefoxOptions();
+   driver = new FirefoxDriver(options);
+  // System.setProperty("webdriver.chrome.driver", "C://Users//PratibhaSistla//Selenium//chromedriver.exe");
+  // ChromeOptions options = new ChromeOptions();
+  //  driver = new ChromeDriver(options);
     percy = new Percy(driver);
    
 
